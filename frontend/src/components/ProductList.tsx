@@ -8,9 +8,27 @@ import { Product } from "../types/Product";
 
 const ProductList: React.FC = () => {
   const products: Product[] = [
-    { image: bulbasaur, name: "Bulbasaur", price: 10 },
-    { image: charmander, name: "Charmander", price: 10 },
-    { image: squirtle, name: "Squirtle", price: 10 },
+    {
+      image: bulbasaur,
+      name: "Bulbasaur",
+      price: 10,
+      stock: 5,
+      description: "A cute grass type Pokemon",
+    },
+    {
+      image: charmander,
+      name: "Charmander",
+      price: 10,
+      stock: 0,
+      description: "A fiery lizard Pokemon",
+    },
+    {
+      image: squirtle,
+      name: "Squirtle",
+      price: 10,
+      stock: 3,
+      description: "A water turtle Pokemon",
+    },
   ];
 
   return (

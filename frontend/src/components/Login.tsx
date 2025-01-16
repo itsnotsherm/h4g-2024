@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
-    Container,
-    TextField,
-    Button,
-    Typography,
-    Box,
-    Alert,
-  } from "@mui/material";
+  Container,
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Alert,
+} from "@mui/material";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -25,12 +25,24 @@ const Login: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 8, p: 4, border: "1px solid #ccc", borderRadius: 2, boxShadow: 3 }}>
+    <Container
+      maxWidth="sm"
+      sx={{
+        mt: 8,
+        p: 4,
+        border: "1px solid",
+        borderRadius: 2,
+        boxShadow: 3,
+      }}
+    >
       <Typography variant="h4" align="center" gutterBottom>
         Login
       </Typography>
       {message.text && (
-        <Alert severity={message.type === "success" ? "success" : "error"} sx={{ mb: 2 }}>
+        <Alert
+          severity={message.type === "success" ? "success" : "error"}
+          sx={{ mb: 2 }}
+        >
           {message.text}
         </Alert>
       )}
@@ -53,7 +65,7 @@ const Login: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           sx={{ mb: 2 }}
         />
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button type="submit" variant="contained" fullWidth>
           Login
         </Button>
       </Box>

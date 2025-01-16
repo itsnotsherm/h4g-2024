@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Card,
   CardMedia,
@@ -10,10 +11,13 @@ import { Product } from "../types/Product";
 
 interface ProductCardProps {
   product: Product;
+  onAddToWishlist: (product: Product) => void; // Callback to add to wishlist
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  console.log(product);
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  onAddToWishlist,
+}) => {
   return (
     <Card
       sx={{
@@ -37,11 +41,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant="outlined">
-          Add to Cart
-        </Button>
-        <Button size="small" variant="contained" color="primary">
-          Checkout
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={() => onAddToWishlist(product)}
+        >
+          Add to Wishlist
         </Button>
       </CardActions>
     </Card>

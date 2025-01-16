@@ -5,31 +5,15 @@ import { Box, Typography, Paper } from "@mui/material";
 const TransactionDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  // Mock data for the details (in a real app, fetch from the backend)
-  const mockDetails = {
-    date: "2025-01-10",
-    amount: 10,
-    description: "Redeemed for Pikachu",
-    location: "Minimart A",
-  };
-
   return (
     <Box
       sx={{
         padding: 4,
-        backgroundColor: "#1a1a1a",
         minHeight: "100vh",
+        backgroundColor: "#1a1a1a",
         color: "white",
       }}
     >
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
-        sx={{ color: "#FFD700", fontWeight: "bold" }}
-      >
-        Transaction Details
-      </Typography>
       <Paper
         elevation={3}
         sx={{
@@ -38,19 +22,13 @@ const TransactionDetails: React.FC = () => {
           borderRadius: 2,
         }}
       >
-        <Typography variant="h6" sx={{ marginBottom: 2 }}>
-          Redemption ID: {id}
+        <Typography variant="h5" sx={{ mb: 2, color: "#a3bef0" }}>
+          Transaction Details
         </Typography>
-        <Typography variant="body1">Date: {mockDetails.date}</Typography>
-        <Typography variant="body1">
-          Amount: {mockDetails.amount} vouchers
+        <Typography variant="body1" sx={{ color: "white" }}>
+          Transaction ID: {id}
         </Typography>
-        <Typography variant="body1">
-          Description: {mockDetails.description}
-        </Typography>
-        <Typography variant="body1">
-          Location: {mockDetails.location}
-        </Typography>
+        {/* Additional transaction details can be fetched and displayed here */}
       </Paper>
     </Box>
   );

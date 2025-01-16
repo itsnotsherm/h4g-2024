@@ -41,6 +41,21 @@ const Header: React.FC = () => {
 
         {/* Search and Auth Buttons */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <Button
+              color="inherit"
+              component={Link}
+              to="/wishlist"
+              sx={{
+                textTransform: "none",
+                fontSize: "1rem",
+                fontWeight: 500,
+                "&:hover": { color: "#FFD700" },
+              }}
+            >
+              Wishlist
+            </Button>
+          </Box>
           <Box
             sx={{
               display: "flex",
@@ -71,6 +86,7 @@ const Header: React.FC = () => {
               <SearchIcon />
             </IconButton>
           </Box>
+
           <Button
             variant="outlined"
             color="inherit"

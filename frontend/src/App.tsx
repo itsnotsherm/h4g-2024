@@ -5,10 +5,11 @@ import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Vouchers from "./pages/Vouchers";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TransactionDetails from "./pages/TransactionDetails";
 import ResetPassword from "./components/ResetPassword";
+import Voucher from "./components/Voucher";
+import Wishlist from "./pages/WishlistPage";
 
 const theme = createTheme({
   typography: {
@@ -39,6 +40,7 @@ function App() {
             element={
               <>
                 <Intro />
+                <Voucher />
                 <ProductList />
               </>
             }
@@ -48,10 +50,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-
-          {/* Placeholder for other routes if needed */}
-          <Route path="/vouchers" element={<Vouchers />} />
           <Route path="/transactions/:id" element={<TransactionDetails />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/account" element={<h1>Account Page</h1>} />
         </Routes>
         <Footer />

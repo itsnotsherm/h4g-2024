@@ -1,32 +1,42 @@
 import React from "react";
-import { Box, Button, Container, Typography } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Box, Container, Typography } from "@mui/material";
+import pikachu from "../assets/pikachu.png";
 
 const Intro: React.FC = () => {
   return (
-    <Container sx={{ textAlign: "center", mt: 4 }}>
-      <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold", mb: 6 }}>
-        Catch Them All
-      </Typography>
-      {/* Navigation Buttons */}
-      <Box sx={{ display: "flex", gap: 2 }}>
-        <Button
-          color="inherit"
-          component={RouterLink}
-          to="/vouchers"
+    <Container sx={{ mt: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: { xs: 2, md: 4 },
+          justifyContent: "center",
+          flexDirection: { xs: "column", md: "row" }, // Stack vertically on smaller screens
+        }}
+      >
+        {/* Text Section */}
+        <Typography
+          variant="h3"
+          gutterBottom
           sx={{
-            textTransform: "none",
-            fontSize: "1rem",
-            fontWeight: 500,
-            "&:hover": { color: "#FFD700" },
+            fontWeight: "bold",
+            mb: { xs: 2, md: 0 }, // Adjust margin for responsiveness
+            textAlign: "center", // Center-align on smaller screens
           }}
         >
-          Vouchers
-        </Button>
+          Catch Them All
+        </Typography>
+
+        {/* Image Section */}
+        <Box
+          component="img"
+          src={pikachu}
+          alt="Pikachu"
+          sx={{
+            width: { xs: "60%", md: "150px" },
+          }}
+        />
       </Box>
-      <Typography variant="h6" gutterBottom>
-        Available Products
-      </Typography>
     </Container>
   );
 };

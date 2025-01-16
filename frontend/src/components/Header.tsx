@@ -1,4 +1,6 @@
+import React from "react";
 import { AppBar, Toolbar, Typography, Button, TextField } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
@@ -18,10 +20,21 @@ const Header: React.FC = () => {
           size="small"
           sx={{ mx: 2, backgroundColor: "white" }}
         />
-        <Button variant="outlined" color="inherit" sx={{ mr: 1 }}>
+        <Button
+          variant="outlined"
+          color="inherit"
+          sx={{ mr: 1 }}
+          component={Link}
+          to="/login"
+        >
           Login
         </Button>
-        <Button variant="contained" sx={{ backgroundColor: "gold" }}>
+        <Button
+          variant="contained"
+          sx={{ backgroundColor: "gold" }}
+          component={Link}
+          to="/signup"
+        >
           Sign-up
         </Button>
       </Toolbar>

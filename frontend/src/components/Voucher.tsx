@@ -90,7 +90,7 @@ const Voucher: React.FC = () => {
             <React.Fragment key={transaction.id}>
               <ListItem
                 component="div"
-                onClick={() => navigate(`/transaction/${transaction.id}`)}
+                onClick={() => navigate(`/transactions/${transaction.id}`)}
                 sx={{
                   "&:hover": { backgroundColor: "#444" },
                 }}

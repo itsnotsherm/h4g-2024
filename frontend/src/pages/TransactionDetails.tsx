@@ -14,6 +14,7 @@ const TransactionDetails: React.FC = () => {
         color: "white",
       }}
     >
+
       <Paper
         elevation={3}
         sx={{
@@ -22,9 +23,9 @@ const TransactionDetails: React.FC = () => {
           borderRadius: 2,
         }}
       >
-        <Typography variant="h5" sx={{ mb: 2, color: "#a3bef0" }}>
-          Transaction Details
-        </Typography>
+      <Typography variant="h4" gutterBottom sx={{ color: "#FFD700", fontWeight: "600" }}>
+        Transaction Details
+      </Typography>
         <Typography variant="body1" sx={{ color: "white" }}>
           Transaction ID: {id}
         </Typography>

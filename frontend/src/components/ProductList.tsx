@@ -13,6 +13,11 @@ const ProductList: React.FC = () => {
     if (!wishlist.find((item) => item.id === product.id)) {
       setWishlist([...wishlist, product]);
     }
+    alert(`"${product.name}" added to your wishlist!`);
+  };
+
+  const handlePreorder = (product: Product) => {
+    alert(`You have preordered "${product.name}".`);
   };
 
   const products: Product[] = [
@@ -23,6 +28,7 @@ const ProductList: React.FC = () => {
       price: 10,
       stock: 5,
       description: "A cute grass type Pokemon",
+      isOutOfStock: false,
     },
     {
       id: 2,
@@ -31,6 +37,7 @@ const ProductList: React.FC = () => {
       price: 10,
       stock: 0,
       description: "A fiery lizard Pokemon",
+      isOutOfStock: true,
     },
     {
       id: 3,
@@ -39,26 +46,28 @@ const ProductList: React.FC = () => {
       price: 10,
       stock: 3,
       description: "A water turtle Pokemon",
+      isOutOfStock: false,
     },
   ];
 
   return (
-    <Box sx={{ mt: 8 }}>
+    <Box sx={{ mt: 6 }}>
       {" "}
       <Typography
-        variant="h5"
+        variant="h4"
         align="center"
         sx={{ color: "#FFD700", fontWeight: "bold" }}
       >
-        Available Products{" "}
+        Products{" "}
       </Typography>
-      <Container sx={{ py: 3 }}>
+      <Container sx={{ py: 4 }}>
         <Grid container spacing={4}>
           {products.map((product, index) => (
             <Grid item key={index} xs={12} sm={6} md={4}>
               <ProductCard
                 product={product}
                 onAddToWishlist={handleAddToWishlist}
+                onPreorder={handlePreorder}
               />
             </Grid>
           ))}

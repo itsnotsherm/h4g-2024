@@ -1,4 +1,5 @@
 export interface Product {
+  isOutOfStock: boolean;
   id: number;
   image: string;
   name: string;

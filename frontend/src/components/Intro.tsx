@@ -14,7 +14,6 @@ const Intro: React.FC = () => {
           flexDirection: { xs: "column", md: "row" }, // Stack vertically on smaller screens
         }}
       >
-        {/* Text Section */}
         <Typography
           variant="h3"
           gutterBottom
@@ -27,7 +26,6 @@ const Intro: React.FC = () => {
           Catch Them All
         </Typography>
 
-        {/* Image Section */}
         <Box
           component="img"
           src={pikachu}

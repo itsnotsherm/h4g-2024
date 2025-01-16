@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import {
+    Container,
+    TextField,
+    Button,
+    Typography,
+    Box,
+    Alert,
+  } from "@mui/material";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -17,49 +25,39 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="container py-5">
-      <h1 className="text-center">Login</h1>
+    <Container maxWidth="sm" sx={{ mt: 8, p: 4, border: "1px solid #ccc", borderRadius: 2, boxShadow: 3 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Login
+      </Typography>
       {message.text && (
-        <div
-          className={`alert ${
-            message.type === "success" ? "alert-success" : "alert-danger"
-          } text-center`}
-        >
+        <Alert severity={message.type === "success" ? "success" : "error"} sx={{ mb: 2 }}>
           {message.text}
-        </div>
+        </Alert>
       )}
-      <form className="w-50 mx-auto mt-4" onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary w-100">
+      <Box component="form" onSubmit={handleSubmit} noValidate>
+        <TextField
+          label="Email"
+          type="email"
+          fullWidth
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          fullWidth
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+        <Button type="submit" variant="contained" color="primary" fullWidth>
           Login
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Box>
+    </Container>
   );
 };
 

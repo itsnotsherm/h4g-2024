@@ -12,13 +12,14 @@ const Signup: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState({ type: "", text: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Simulate signup success
-    if (name && email && password) {
+    if (name && email && password && mobile) {
       setMessage({ type: "success", text: "Signup successful! Please log in." });
     } else {
       setMessage({ type: "error", text: "Please fill in all fields." });
@@ -61,6 +62,15 @@ const Signup: React.FC = () => {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          label="Mobile"
+          type="mobile"
+          fullWidth
+          required
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
           sx={{ mb: 2 }}
         />
         <Button type="submit" variant="contained" color="success" fullWidth>

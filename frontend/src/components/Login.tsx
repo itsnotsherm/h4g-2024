@@ -33,12 +33,19 @@ const Login: React.FC = () => {
       sx={{
         mt: 8,
         p: 4,
-        border: "1px solid",
+        border: "1px solid #444", // Subtle border color
         borderRadius: 2,
-        boxShadow: 3,
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Soft shadow for elevation
+        backgroundColor: "#1a1a1a", // Dark grey background
+        color: "white", // Text color for better contrast
       }}
     >
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ color: "#FFD700", fontWeight: "bold" }}
+      >
         Login
       </Typography>
       {message.text && (
@@ -57,7 +64,16 @@ const Login: React.FC = () => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          sx={{ mb: 2 }}
+          sx={{
+            mb: 2,
+            input: { color: "white" },
+            label: { color: "#FFD700" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#444" },
+              "&:hover fieldset": { borderColor: "#FFD700" },
+              "&.Mui-focused fieldset": { borderColor: "#FFD700" },
+            },
+          }}
         />
         <TextField
           label="Password"
@@ -66,16 +82,43 @@ const Login: React.FC = () => {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          sx={{ mb: 2 }}
+          sx={{
+            mb: 2,
+            input: { color: "white" },
+            label: { color: "#FFD700" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#444" },
+              "&:hover fieldset": { borderColor: "#FFD700" },
+              "&.Mui-focused fieldset": { borderColor: "#FFD700" },
+            },
+          }}
         />
-        <Button type="submit" variant="contained" fullWidth>
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{
+            backgroundColor: "#FFD700",
+            color: "black",
+            "&:hover": {
+              backgroundColor: "#90a6d6",
+            },
+          }}
+        >
           Login
         </Button>
-        <Typography align="center" sx={{ mt: 2 }}>
+        <Typography align="center" sx={{ mt: 2, color: "white" }}>
           <Link
             component="button"
             onClick={() => navigate("/reset-password")}
-            sx={{ textDecoration: "none", cursor: "pointer" }}
+            sx={{
+              textDecoration: "none",
+              color: "#FFD700",
+              cursor: "pointer",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
           >
             Forgot Password?
           </Link>

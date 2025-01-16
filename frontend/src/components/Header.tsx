@@ -33,40 +33,11 @@ const Header: React.FC = () => {
             fontWeight: "bold",
             fontSize: "1rem",
             "&:hover": { color: "#FFD700" },
+            paddingLeft: 2,
           }}
         >
           Catch Them All
         </Typography>
-
-        {/* Navigation Buttons */}
-        <Box sx={{ display: "flex", gap: 2 }}>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/vouchers"
-            sx={{
-              textTransform: "none",
-              fontSize: "1rem",
-              fontWeight: 500,
-              "&:hover": { color: "#FFD700" },
-            }}
-          >
-            Vouchers
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/transactions"
-            sx={{
-              textTransform: "none",
-              fontSize: "1rem",
-              fontWeight: 500,
-              "&:hover": { color: "#FFD700" },
-            }}
-          >
-            Transactions
-          </Button>
-        </Box>
 
         {/* Search and Auth Buttons */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -85,7 +56,16 @@ const Header: React.FC = () => {
               InputProps={{
                 disableUnderline: true,
               }}
-              sx={{ width: 150 }}
+              sx={{
+                width: 150,
+                input: {
+                  color: "#333",
+                  "&::placeholder": {
+                    color: "#666", // Darker color for the placeholder
+                    opacity: 1, // Ensure placeholder is fully visible
+                  },
+                },
+              }}
             />
             <IconButton sx={{ color: "#666" }}>
               <SearchIcon />

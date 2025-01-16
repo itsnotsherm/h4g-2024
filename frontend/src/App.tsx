@@ -5,10 +5,10 @@ import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-<<<<<<< HEAD
 import Vouchers from "./pages/Vouchers";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TransactionDetails from "./pages/TransactionDetails";
+import ResetPassword from "./components/ResetPassword";
 
 const theme = createTheme({
   typography: {
@@ -26,9 +26,6 @@ const theme = createTheme({
     },
   },
 });
-=======
-import ResetPassword from "./components/ResetPassword";
->>>>>>> dbe22564f0a94b1ae4f741f5695f5a380e7f0fc6
 
 function App() {
   return (
@@ -47,35 +44,19 @@ function App() {
             }
           />
 
-<<<<<<< HEAD
           {/* Login and Signup routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
           {/* Placeholder for other routes if needed */}
           <Route path="/vouchers" element={<Vouchers />} />
-          <Route path="/redemption/:id" element={<TransactionDetails />} />
+          <Route path="/transactions/:id" element={<TransactionDetails />} />
           <Route path="/account" element={<h1>Account Page</h1>} />
         </Routes>
         <Footer />
       </Router>
     </ThemeProvider>
-=======
-        {/* Login and Signup routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-
-        {/* Placeholder for other routes if needed */}
-        <Route path="/products" element={<h1>Products Page</h1>} />
-        <Route path="/vouchers" element={<h1>Vouchers Page</h1>} />
-        <Route path="/transactions" element={<h1>Transactions Page</h1>} />
-        <Route path="/account" element={<h1>Account Page</h1>} />
-        
-      </Routes>
-      <Footer />
-    </Router>
->>>>>>> dbe22564f0a94b1ae4f741f5695f5a380e7f0fc6
   );
 }
 

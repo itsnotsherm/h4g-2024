@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import {
-<<<<<<< HEAD
   Container,
   TextField,
   Button,
   Typography,
   Box,
   Alert,
+  Link,
 } from "@mui/material";
-=======
-    Container,
-    TextField,
-    Button,
-    Typography,
-    Box,
-    Alert,
-    Link,
-  } from "@mui/material";
 import { useNavigate } from "react-router-dom";
->>>>>>> dbe22564f0a94b1ae4f741f5695f5a380e7f0fc6
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");

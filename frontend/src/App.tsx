@@ -5,17 +5,8 @@ import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import ResetPassword from "./components/ResetPassword";
 
-// function App() {
-//   return (
-//     <div>
-//       <Header />
-//       <Intro />
-//       <ProductList />
-//       <Footer />
-//     </div>
-//   );
-// }
 function App() {
   return (
     <Router>
@@ -35,12 +26,14 @@ function App() {
         {/* Login and Signup routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* Placeholder for other routes if needed */}
         <Route path="/products" element={<h1>Products Page</h1>} />
         <Route path="/vouchers" element={<h1>Vouchers Page</h1>} />
         <Route path="/transactions" element={<h1>Transactions Page</h1>} />
         <Route path="/account" element={<h1>Account Page</h1>} />
+        
       </Routes>
       <Footer />
     </Router>

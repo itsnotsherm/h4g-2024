@@ -6,12 +6,15 @@ import {
     Typography,
     Box,
     Alert,
+    Link,
   } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState({ type: "", text: "" });
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +59,15 @@ const Login: React.FC = () => {
         <Button type="submit" variant="contained" color="primary" fullWidth>
           Login
         </Button>
+        <Typography align="center" sx={{ mt: 2 }}>
+          <Link
+            component="button"
+            onClick={() => navigate("/reset-password")}
+            sx={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            Forgot Password?
+          </Link>
+        </Typography>
       </Box>
     </Container>
   );

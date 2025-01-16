@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     e.preventDefault();
 
     // Simulated login validation
-    if (email === "test@example.com" && password === "password123") {
+    if (email === "timmy@gmail.com" && password === "password") {
       setMessage({ type: "success", text: "Login successful! Welcome back." });
     } else {
       setMessage({ type: "error", text: "Invalid email or password." });

@@ -116,8 +116,8 @@ The Pokémon-themed design not only adds a fun and interactive touch, but also e
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/isawangyx"><img src="https://github.com/isawangyx.png" width="100px;" style="border-radius:50%;" alt="isawangyx"/></a></td>
-    <td align="center"><a href="https://github.com/natlv"><img src="https://github.com/natlv.png" width="100px;" style="border-radius:50%;" alt="natlv"/></a></td>
-    <td align="center"><a href="https://github.com/itsnotsherm"><img src="https://github.com/itsnotsherm.png" width="100px;" style="border-radius:50%;" alt="itsnotsherm"/></a></td>
+    <td align="center"><a href="https://github.com/isawangyx"><img src="https://github.com/isawangyx.png" width="100" style="border-radius:50%; margin: 10px;" alt="isawangyx"/></a></td>
+    <td align="center"><a href="https://github.com/natlv"><img src="https://github.com/natlv.png" width="100" style="border-radius:50%; margin: 10px;" alt="natlv"/></a></td>
+    <td align="center"><a href="https://github.com/itsnotsherm"><img src="https://github.com/itsnotsherm.png" width="100" style="border-radius:50%; margin: 10px;" alt="itsnotsherm"/></a></td>
   </tr>
 </table>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container, TextField, Button, Typography, Box, Alert } from "@mui/material";
-import axios from "axios";
 
 const ResetPassword: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -9,14 +8,9 @@ const ResetPassword: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post("http://localhost:5000/api/reset-password", { email });
-      setMessage({ type: "success", text: response.data.message });
-    } catch (err: any) {
-      setMessage({
-        type: "error",
-        text: err.response?.data.message || "An error occurred. Please try again.",
-      });
+    if (email === "timmy@gmail.com") {
+        setMessage({ type: "success", text: "Your password has been reset. The link to recover your account has been sent to your email. This link is only valid for 24 hours."})
+        setMessage({ type: "error", text: "This email is not registered." });
     }
   };
 
@@ -38,10 +32,10 @@ const ResetPassword: React.FC = () => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          sx={{ mb: 2 }}
+          sx={{ mb: 2, input: { color: "black" }}}
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
-          Send OTP
+          Reset my password
         </Button>
       </Box>
     </Container>

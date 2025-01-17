@@ -22,11 +22,15 @@ The Pokémon theme is designed to cater to the younger generation, making the sy
 ## Installation
 1. Clone the repo
 
-   `git clone https://github.com/itsnotsherm/h4g-2025.git`
+   ```
+   git clone https://github.com/itsnotsherm/h4g-2025.git
+   ```
 
 2. Install npm packages
 
-   `npm install`
+   ```
+   npm install
+   ```
 
 3. Change git remote url to avoid accidental pushes to base project
 

@@ -10,10 +10,21 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-// const users = [
-//   { email: "timmy@gmail.com", password: "password", isAdmin: false },
-//   { email: "admin@catchthemall.com", password: "admin", isAdmin: true },
-// ];
+// const newUser = {
+//   name: "admin",
+//   email: "admin@catchthemall.com",
+//   password: "Admin1459",
+//   mobile: "81234567",
+//   isAdmin: true,
+// };
+
+// const newUser = {
+//   name: "timmy",
+//   email: "timmy@gmail.com",
+//   password: "password",
+//   mobile: "91234567",
+//   isAdmin: false,
+// };
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");

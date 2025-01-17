@@ -7,6 +7,7 @@ import {
   Box,
   Alert,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC = () => {
   const [name, setName] = useState("");
@@ -14,16 +15,47 @@ const Signup: React.FC = () => {
   const [password, setPassword] = useState("");
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState({ type: "", text: "" });
+  const navigate = useNavigate(); // Use navigate for redirection
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Simulate signup success
     if (name && email && password && mobile) {
+      // Retrieve existing users from localStorage
+      const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+
+      // Check if the email already exists
+      const emailExists = storedUsers.some(
+        (user: { email: string }) => user.email === email
+      );
+
+      if (emailExists) {
+        setMessage({ type: "error", text: "Email already exists!" });
+        return;
+      }
+
+      // Add the new user
+      const newUser = { name, email, password, mobile, isAdmin: false };
+      storedUsers.push(newUser);
+
+      // Update users in localStorage
+      localStorage.setItem("users", JSON.stringify(storedUsers));
+
       setMessage({
         type: "success",
-        text: "Signup successful! Please log in.",
+        text: "Signup successful! Redirecting to login page...",
       });
+
+      // Clear input fields
+      setName("");
+      setEmail("");
+      setPassword("");
+      setMobile("");
+
+      // Redirect to login page after a short delay
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } else {
       setMessage({ type: "error", text: "Please fill in all fields." });
     }

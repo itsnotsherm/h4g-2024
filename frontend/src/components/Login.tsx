@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const users = [
-  { email: "timmy@gmail.com", password: "password", isAdmin: false },
-  { email: "admin@catchthemall.com", password: "admin", isAdmin: true },
-];
+// const users = [
+//   { email: "timmy@gmail.com", password: "password", isAdmin: false },
+//   { email: "admin@catchthemall.com", password: "admin", isAdmin: true },
+// ];
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -23,19 +23,33 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
-    const user = users.find((user) => user.email === email && user.password === password);
-  
+
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+
+    // Find the user
+    const user = storedUsers.find(
+      (user: { email: string; password: string }) =>
+        user.email === email && user.password === password
+    );
+
     if (user) {
+      // Set success message
       setMessage({ type: "success", text: "Login successful!" });
-      localStorage.setItem("user", JSON.stringify(user));  // Store entire user object
-      localStorage.setItem("isAdmin", user.isAdmin.toString());  // Store isAdmin separately
+
+      // Save user to localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isAdmin", user.isAdmin.toString());
+
+      // Trigger storage event for Header
+      window.dispatchEvent(new Event("storage"));
+
+      // Navigate after a short delay
       setTimeout(() => {
         navigate(user.isAdmin ? "/admin" : "/");
-        window.dispatchEvent(new Event("storage")); // Notify other components
       }, 1000);
     } else {
-      setMessage({ type: "error", text: "Invalid email or password" });
+      // Set error message
+      setMessage({ type: "error", text: "Invalid email or password." });
     }
   };
 
@@ -61,7 +75,10 @@ const Login: React.FC = () => {
         Login
       </Typography>
       {message.text && (
-        <Alert severity={message.type === "success" ? "success" : "error"} sx={{ mb: 2 }}>
+        <Alert
+          severity={message.type === "success" ? "success" : "error"}
+          sx={{ mb: 2 }}
+        >
           {message.text}
         </Alert>
       )}

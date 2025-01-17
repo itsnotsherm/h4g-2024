@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Admin from "./pages/Admin"
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import ProductList from "./components/ProductList";
@@ -53,6 +54,7 @@ function App() {
           <Route path="/transactions/:id" element={<TransactionDetails />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/account" element={<h1>Account Page</h1>} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
       </Router>

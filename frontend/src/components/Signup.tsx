@@ -17,7 +17,7 @@ const Signup: React.FC = () => {
   const [message, setMessage] = useState({ type: "", text: "" });
   const navigate = useNavigate(); // Use navigate for redirection
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (name && email && password && mobile) {
@@ -46,16 +46,16 @@ const Signup: React.FC = () => {
         text: "Signup successful! Redirecting to login page...",
       });
 
+      // Redirect to login page after a short delay
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500); // 1.5-second delay for user to see the success message
+
       // Clear input fields
       setName("");
       setEmail("");
       setPassword("");
       setMobile("");
-
-      // Redirect to login page after a short delay
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
     } else {
       setMessage({ type: "error", text: "Please fill in all fields." });
     }

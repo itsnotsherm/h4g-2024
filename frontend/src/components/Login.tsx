@@ -9,22 +9,7 @@ import {
   Link,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-
-// const newUser = {
-//   name: "admin",
-//   email: "admin@catchthemall.com",
-//   password: "Admin1459",
-//   mobile: "81234567",
-//   isAdmin: true,
-// };
-
-// const newUser = {
-//   name: "timmy",
-//   email: "timmy@gmail.com",
-//   password: "password",
-//   mobile: "91234567",
-//   isAdmin: false,
-// };
+import { supabase } from "../services/supabaseClient"; // Adjust the path as needed
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -32,35 +17,51 @@ const Login: React.FC = () => {
   const [message, setMessage] = useState({ type: "", text: "" });
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    try {
+      // Query Supabase for user with matching email and password
+      const { data: users, error } = await supabase
+        .from("users")
+        .select("*")
+        .eq("email", email);
 
-    // Find the user
-    const user = storedUsers.find(
-      (user: { email: string; password: string }) =>
-        user.email === email && user.password === password
-    );
+      if (error) throw error;
 
-    if (user) {
-      // Set success message
-      setMessage({ type: "success", text: "Login successful!" });
+      if (users && users.length > 0) {
+        const user = users[0];
 
-      // Save user to localStorage
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("isAdmin", user.isAdmin.toString());
+        // Check if the password matches
+        if (user.password === password) {
+          // Set success message
+          setMessage({ type: "success", text: "Login successful!" });
 
-      // Trigger storage event for Header
-      window.dispatchEvent(new Event("storage"));
+          // Store the user in local storage
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ email: user.email, isAdmin: user.is_admin })
+          );
+          localStorage.setItem("isAdmin", user.is_admin.toString());
 
-      // Navigate after a short delay
-      setTimeout(() => {
-        navigate(user.isAdmin ? "/admin" : "/");
-      }, 1000);
-    } else {
-      // Set error message
-      setMessage({ type: "error", text: "Invalid email or password." });
+          // Trigger storage event for Header
+          window.dispatchEvent(new Event("storage"));
+
+          // Navigate to the appropriate page
+          setTimeout(() => {
+            navigate(user.is_admin ? "/admin" : "/");
+          }, 1000);
+        } else {
+          // Incorrect password
+          setMessage({ type: "error", text: "Invalid email or password." });
+        }
+      } else {
+        // User not found
+        setMessage({ type: "error", text: "Invalid email or password." });
+      }
+    } catch (error: any) {
+      console.error("Error logging in:", error.message);
+      setMessage({ type: "error", text: "An error occurred. Please try again." });
     }
   };
 

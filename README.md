@@ -112,7 +112,7 @@ The frontend is crafted with **React**, paired with **Material-UI** for a sleek,
 
 The Pokémon-themed design not only adds a fun and interactive touch, but also enhances user engagement and accessibility for all ages.
 
-## Contributors
+## Project Contributors
 
 <table>
   <tr>

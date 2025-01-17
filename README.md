@@ -95,5 +95,15 @@ The backend leverages Supabase, an open-source backend platform that combines th
 Supabase ensures a reliable and modern backend foundation, enhancing both performance and user experience.
 
 ### Frontend
-- Built with **React** and styled using **Material-UI** for a modern and responsive interface.
-- The Pokémon theme ensures an engaging experience for younger users.
+The frontend is crafted with **React**, paired with **Material-UI** for a sleek, modern, and fully responsive interface.
+
+- **🎨 Engaging Pokémon Theme:**
+  Designed to captivate younger users with vibrant Pokémon-inspired visuals and playful interactions.
+
+- **📱 Responsive Design:**
+  Ensures seamless usability across devices, from desktops to mobile phones.
+
+- **⚡ Dynamic Interface:**
+  Provides a user-friendly experience with real-time feedback and intuitive navigation.
+
+The Pokémon-themed design not only adds a fun and interactive touch, but also enhances user engagement and accessibility for all ages.

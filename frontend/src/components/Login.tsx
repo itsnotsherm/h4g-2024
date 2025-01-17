@@ -10,6 +10,11 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+const users = [
+  { email: "timmy@gmail.com", password: "password", isAdmin: false },
+  { email: "admin@catchthemall.com", password: "admin", isAdmin: true },
+];
+
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,12 +23,19 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Simulated login validation
-    if (email === "timmy@gmail.com" && password === "password") {
-      setMessage({ type: "success", text: "Login successful! Welcome back." });
+  
+    const user = users.find((user) => user.email === email && user.password === password);
+  
+    if (user) {
+      setMessage({ type: "success", text: "Login successful!" });
+      localStorage.setItem("user", JSON.stringify(user));  // Store entire user object
+      localStorage.setItem("isAdmin", user.isAdmin.toString());  // Store isAdmin separately
+      setTimeout(() => {
+        navigate(user.isAdmin ? "/admin" : "/");
+        window.dispatchEvent(new Event("storage")); // Notify other components
+      }, 1000);
     } else {
-      setMessage({ type: "error", text: "Invalid email or password." });
+      setMessage({ type: "error", text: "Invalid email or password" });
     }
   };
 
@@ -33,11 +45,11 @@ const Login: React.FC = () => {
       sx={{
         mt: 8,
         p: 4,
-        border: "1px solid #444", // Subtle border color
+        border: "1px solid #444",
         borderRadius: 2,
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Soft shadow for elevation
-        backgroundColor: "#1a1a1a", // Dark grey background
-        color: "white", // Text color for better contrast
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+        backgroundColor: "#1a1a1a",
+        color: "white",
       }}
     >
       <Typography
@@ -49,10 +61,7 @@ const Login: React.FC = () => {
         Login
       </Typography>
       {message.text && (
-        <Alert
-          severity={message.type === "success" ? "success" : "error"}
-          sx={{ mb: 2 }}
-        >
+        <Alert severity={message.type === "success" ? "success" : "error"} sx={{ mb: 2 }}>
           {message.text}
         </Alert>
       )}

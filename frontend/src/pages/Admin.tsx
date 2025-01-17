@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, Tab, Container, Card, Button, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
 
 const users = [
@@ -182,8 +183,12 @@ const Reports: React.FC<{ data: any }> = ({ data }) => {
     );
 };
 
+const getCurrentUser = () => {
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    return user.isAdmin;
+};
+
 const getAdminData = async () => {
-    // populate with dummy data
     return {
         users: users,
         voucherTasks: voucherTasks,
@@ -196,8 +201,16 @@ const getAdminData = async () => {
 const Admin: React.FC = () => {
     const [tabIndex, setTabIndex] = useState(0);
     const [adminData, setAdminData] = useState<any>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
+        const isAdmin = localStorage.getItem("isAdmin") === "true";
+
+        if (!isAdmin) {
+            navigate('/'); // Redirect non-admins
+            return;
+        }
+
         async function fetchData() {
             try {
                 const data = await getAdminData();
@@ -207,7 +220,7 @@ const Admin: React.FC = () => {
             }
         }
         fetchData();
-    }, []);
+    }, [navigate]);
 
     const handleChange = (_event: React.SyntheticEvent, newIndex: number) => {
         setTabIndex(newIndex);
@@ -225,7 +238,6 @@ const Admin: React.FC = () => {
                     '& .Mui-selected': { color: '#FFFFFF' },
                 }}
             >
-                {/* change colours so it sticks out on black background */}
                 <Tab label="Manage Users" />
                 <Tab label="Voucher Tasks" />
                 <Tab label="Product Requests" />

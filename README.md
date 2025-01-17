@@ -37,27 +37,34 @@ The Pokémon theme is designed to cater to the younger generation, making the sy
 
 ## Usage for residents
 1. **Signup**
+
    Residents can sign up by providing their name, email, password, and mobile number.
    Upon successfully signing up, residents can log in to view and manage their accounts.
 
 2. **Login**
+
    Residents can log in using registered credentials to access the Pokémon-themed dashboard, where they can view their voucher balance and transaction history, as well as purchase products in the minimart or preorder out-of-stock products.
 
 3. **Password Reset**
+
    In case of a forgotten password, residents can request a reset link, which will be sent to their registered email.
 
 ## Usage for admin
 1. **Access Admin Panel**
+
    Logging in with admin credentials grants access to the management dashboard.
 
 2. **Manage Users**
+
    Admin can view registered users, and suspend users or reset user passwords when necessary.
 
 3. **Monitor Transactions**
+
    - Product requests and voucher tasks can be approved or rejected.
    - Reports can be generated to analyse trends and inventory usage.
 
 4. **Update Inventory**
+
    Product details and quantities can be updated to maintain accurate stock levels.
 
 ## Development Notes

@@ -111,3 +111,13 @@ The frontend is crafted with **React**, paired with **Material-UI** for a sleek,
   Provides a user-friendly experience with real-time feedback and intuitive navigation.
 
 The Pokémon-themed design not only adds a fun and interactive touch, but also enhances user engagement and accessibility for all ages.
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/isawangyx"><img src="https://github.com/isawangyx.png" width="100px;" alt="isawangyx"/><br /><sub><b>isawangyx</b></sub></a></td>
+    <td align="center"><a href="https://github.com/natlv"><img src="https://github.com/natlv.png" width="100px;" alt="natlv"/><br /><sub><b>natlv</b></sub></a></td>
+    <td align="center"><a href="https://github.com/itsnotsherm"><img src="https://github.com/itsnotsherm.png" width="100px;" alt="itsnotsherm"/><br /><sub><b>itsnotsherm</b></sub></a></td>
+  </tr>
+</table>

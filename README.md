@@ -74,7 +74,7 @@ The Pokémon theme is designed to cater to the younger generation, making the sy
 ## Development Notes
 
 ### Backend
-The backend leverages Supabase, an open-source backend platform that combines the power of PostgreSQL with real-time updates and seamless scalability. Key highlights include:
+The backend leverages **Supabase** and **Node.js**, creating a modern and scalable foundation that combines the power of **PostgreSQL** with real-time updates and custom server-side logic. Key highlights include:
 
 - **🚀 Scalability:**
 
@@ -82,11 +82,14 @@ The backend leverages Supabase, an open-source backend platform that combines th
 
 - **🔄 Real-Time Updates:**
 
-  Enjoy instant synchronization of data across the application, providing users with a smooth and dynamic experience.
+  Enjoy instant synchronization of data across the application with **Supabase’s real-time listeners**, providing users with a smooth and dynamic experience.
 
 - **🔒 Security:**
 
-  Implements robust role-based permissions and secure authentication, safeguarding sensitive user and system data.
+  Implements robust role-based permissions, secure authentication using **Supabase Authentication**, and password hashing with **Node.js** to safeguard sensitive user and system data.
+
+- **🛠️ Custom Logic with Node.js:**
+  Utilizes **Node.js** (via Express.js) for advanced business logic, such as batch operations, secure password resets, and custom endpoints to extend Supabase’s capabilities.
 
 - **🗂️ Comprehensive Database Schema:**
 
@@ -96,7 +99,7 @@ The backend leverages Supabase, an open-source backend platform that combines th
     - `inventory`: Monitor minimart product availability.
     - `preorders`: Manage requests for out-of-stock items.
 
-Supabase ensures a reliable and modern backend foundation, enhancing both performance and user experience.
+Supabase and Node.js together provide a **reliable, scalable, and modern backend architecture**, enabling seamless performance, robust security, and the flexibility to meet evolving requirements.
 
 ### Frontend
 The frontend is crafted with **React**, paired with **Material-UI** for a sleek, modern, and fully responsive interface.

@@ -70,8 +70,29 @@ The Pokémon theme is designed to cater to the younger generation, making the sy
 ## Development Notes
 
 ### Backend
-- Scaleable database
-- Secure hashing and reset functionality implemented for passwords
+The backend leverages Supabase, an open-source backend platform that combines the power of PostgreSQL with real-time updates and seamless scalability. Key highlights include:
+
+- **🚀 Scalability:**
+
+  Designed to handle a growing user base and future expansions effortlessly, ensuring the system can adapt to evolving needs.
+
+- **🔄 Real-Time Updates:**
+
+  Enjoy instant synchronization of data across the application, providing users with a smooth and dynamic experience.
+
+- **🔒 Security:**
+
+  Implements robust role-based permissions and secure authentication, safeguarding sensitive user and system data.
+
+- **🗂️ Comprehensive Database Schema:**
+
+    - `users`: Manage user accounts, roles, and authentication.
+    - `vouchers`: Track user voucher balances.
+    - `transactions`: Record purchase histories and voucher usage.
+    - `inventory`: Monitor minimart product availability.
+    - `preorders`: Manage requests for out-of-stock items.
+
+Supabase ensures a reliable and modern backend foundation, enhancing both performance and user experience.
 
 ### Frontend
 - Built with **React** and styled using **Material-UI** for a modern and responsive interface.

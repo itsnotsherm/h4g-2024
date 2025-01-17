@@ -10,6 +10,7 @@ const ResetPassword: React.FC = () => {
 
     if (email === "timmy@gmail.com") {
         setMessage({ type: "success", text: "Your password has been reset. The link to recover your account has been sent to your email. This link is only valid for 24 hours."})
+    } else {
         setMessage({ type: "error", text: "This email is not registered." });
     }
   };

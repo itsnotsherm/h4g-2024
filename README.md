@@ -1,4 +1,4 @@
-# Pokémon-Themed Minimart and Voucher System for Muhammadiyah Welfare Home
+# Catch Them All - Minimart and Voucher System for Muhammadiyah Welfare Home
 
 ## Introduction
 The **Muhammadiyah Welfare Home (MWH)** is dedicated to providing care and support for boys residing on its campus, fostering a nurturing environment to help them thrive. As part of the **Hack for Good 2025** initiative, this project introduces a **Pokémon-themed web-based Minimart and Voucher System** to empower residents and streamline operational workflows.

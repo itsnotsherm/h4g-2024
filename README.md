@@ -35,7 +35,7 @@ The Pokémon theme is designed to cater to the younger generation, making the sy
 3. Change git remote url to avoid accidental pushes to base project
 
    ```
-   git remote set-url origin github_username/repo_name
+   git remote set-url origin itsnotsherm/h4g-2025
    git remote -v 
    ```
 

@@ -89,6 +89,7 @@ The backend leverages **Supabase** and **Node.js**, creating a modern and scalab
   Implements robust role-based permissions, secure authentication using **Supabase Authentication**, and password hashing with **Node.js** to safeguard sensitive user and system data.
 
 - **🛠️ Custom Logic with Node.js:**
+
   Utilizes **Node.js** (via Express.js) for advanced business logic, such as batch operations, secure password resets, and custom endpoints to extend Supabase’s capabilities.
 
 - **🗂️ Comprehensive Database Schema:**
